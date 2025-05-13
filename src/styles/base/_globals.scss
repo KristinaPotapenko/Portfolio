@@ -1,0 +1,22 @@
+body {
+  padding: 16px;
+  font-family: var(--font-family-base);
+  font-size: 16px;
+  line-height: calc(24 / 16);
+  letter-spacing: 2%;
+  color: var(--color-gray-500);
+  background-color: var(--primary-color-light);
+}
+
+a,
+button,
+input,
+textarea,
+svg * {
+  transition-duration: var(--transition-duration);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
