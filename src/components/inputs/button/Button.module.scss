@@ -1,0 +1,30 @@
+@use "../../../styles/abstracts/media" as *;
+@use "../../../styles/abstracts/variables" as *;
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: var(--button-height);
+  font-size: 20px;
+  padding: 16px 20px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  color: var(--primary-color-light);
+  background-color: var(--primary-color-dark);
+  border: none;
+  border-radius: var(--border-radius-small);
+  box-sizing: border-box;
+  outline: none;
+  cursor: pointer;
+
+  @include hover {
+    background-color: var(--primary-color-gray);
+  }
+
+  &:active {
+    color: var(--primary-color-dark);
+    background-color: transparent;
+    border: var(--border-dark);
+  }
+}
