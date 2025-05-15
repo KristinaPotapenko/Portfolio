@@ -1,11 +1,5 @@
-import { Input } from "./components/inputs/input/Input";
-
 function App() {
-  return (
-    <div>
-      <Input placeholder="Your name" />
-    </div>
-  );
+  return <div></div>;
 }
 
 export default App;

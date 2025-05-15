@@ -1,0 +1,30 @@
+@use "../../../../styles/abstracts/media" as *;
+
+.socialLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--social-size);
+  height: var(--social-size);
+  border: var(--border-dark);
+  border-radius: var(--border-radius-small);
+  cursor: pointer;
+
+  svg {
+    width: 24px;
+    height: 24px;
+
+    path {
+      fill: var(--primary-color-dark);
+      transition: fill 0.3s ease;
+    }
+  }
+
+  @include hover {
+    background-color: var(--primary-color-dark);
+
+    svg path {
+      fill: var(--primary-color-light);
+    }
+  }
+}
