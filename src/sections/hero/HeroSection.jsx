@@ -1,13 +1,14 @@
 import { HeroContent } from "../../components/hero/HeroContent";
 import { HeroImage } from "../../components/hero/HeroImage";
+import style from "./HeroSection.module.scss";
 
 export const HeroSection = () => {
   return (
-    <section className="sectionMedium">
-      <div className="container">
+    <div className="container">
+      <section className={`sectionMedium ${style.heroSection}`}>
         <HeroContent />
         <HeroImage />
-      </div>
-    </section>
+      </section>
+    </div>
   );
 };
