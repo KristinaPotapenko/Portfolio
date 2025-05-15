@@ -1,0 +1,14 @@
+@use "../../../styles/abstracts/media" as *;
+
+.navLink {
+  display: flex;
+  font-size: 20px;
+  font-weight: 600;
+  text-align: center;
+  color: var(--primary-color-dark);
+  cursor: pointer;
+
+  @include hover {
+    font-weight: 700;
+  }
+}
