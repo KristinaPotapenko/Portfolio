@@ -1,3 +1,9 @@
+import style from "./SectionDescription.module.scss";
+
 export const SectionDescription = ({ marginBottom, children }) => {
-  return <p style={{ marginBottom }}>{children}</p>;
+  return (
+    <p style={{ marginBottom }} className={style.sectionDescription}>
+      {children}
+    </p>
+  );
 };
