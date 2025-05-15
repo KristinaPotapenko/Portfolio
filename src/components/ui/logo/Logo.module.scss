@@ -1,0 +1,28 @@
+@use "../../../styles/abstracts/media" as *;
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transition: transform 0.3s ease;
+
+  @include hover {
+    transform: scale(1.02);
+
+    img {
+      transform: rotate(10deg);
+    }
+  }
+
+  img {
+    max-width: 40px;
+    max-height: 40px;
+    transition: transform 0.3s ease;
+  }
+
+  p {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--primary-color-dark);
+  }
+}
