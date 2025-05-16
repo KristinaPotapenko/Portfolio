@@ -1,0 +1,51 @@
+@use "../../../styles/abstracts/media" as *;
+
+.projectsItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 60px;
+  padding-inline: 80px;
+}
+
+.projectsItemReverse {
+  flex-direction: row-reverse;
+}
+.projectImage {
+  height: 280px;
+  width: 530px;
+  object-fit: cover;
+  border-radius: var(--border-radius-large);
+}
+
+.projectContent {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.projectNumber {
+  font-size: 48px;
+  font-weight: 800;
+  color: var(--primary-color-light);
+}
+
+.projectTitle {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--primary-color-light);
+}
+
+.projectLink {
+  transition: all 0.5s ease-in;
+
+  @include hover {
+    svg {
+      transform: scale(1.1);
+    }
+  }
+  svg {
+    width: 24px;
+    height: 24px;
+  }
+}
