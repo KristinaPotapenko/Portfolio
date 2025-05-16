@@ -13,50 +13,62 @@ import { ReactComponent as WebpackIcon } from "../../../assets/icons/webpack.svg
 
 export const skills = [
   {
+    id: "1",
     icon: <HtmlIcon />,
     skillsName: "Html",
   },
   {
+    id: "2",
     icon: <CssIcon />,
     skillsName: "Css",
   },
   {
+    id: "3",
     icon: <ScssIcon />,
     skillsName: "Scss",
   },
   {
+    id: "4",
     icon: <JSIcon />,
     skillsName: "JavaScript",
   },
   {
+    id: "5",
     icon: <ReactIcon />,
     skillsName: "React",
   },
   {
+    id: "6",
     icon: <ReduxIcon />,
     skillsName: "Redux",
   },
   {
+    id: "7",
     icon: <NextIcon />,
     skillsName: "Next.js",
   },
   {
+    id: "8",
     icon: <TSIcon />,
     skillsName: "TypeScript",
   },
   {
+    id: "9",
     icon: <GitIcon />,
     skillsName: "Git",
   },
   {
+    id: "10",
     icon: <PostgreeIcon />,
     skillsName: "PostgreSQL",
   },
   {
+    id: "11",
     icon: <FigmaIcon />,
     skillsName: "Figma",
   },
   {
+    id: "12",
     icon: <WebpackIcon />,
     skillsName: "Webpack",
   },

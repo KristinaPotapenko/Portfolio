@@ -6,7 +6,13 @@ export const SkillsList = () => {
   return (
     <ul className={style.skillsList}>
       {skills.map((skill) => {
-        return <SkillsItem icon={skill.icon} skillsName={skill.skillsName} />;
+        return (
+          <SkillsItem
+            key={skill.id}
+            icon={skill.icon}
+            skillsName={skill.skillsName}
+          />
+        );
       })}
     </ul>
   );
