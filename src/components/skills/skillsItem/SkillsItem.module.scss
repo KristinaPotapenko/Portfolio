@@ -1,0 +1,38 @@
+@use "../../../styles/abstracts/media" as *;
+
+.skillsItemWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+  width: 186px;
+  height: 186px;
+  border: var(--border-dark);
+  border-radius: var(--border-radius-small);
+  transition: all 0.3ms ease;
+  cursor: pointer;
+
+  @include hover {
+    background-color: var(--primary-color-dark);
+
+    path {
+      fill: var(--primary-color-light);
+    }
+
+    .skillsItemName {
+      color: var(--primary-color-light);
+    }
+  }
+
+  svg {
+    width: var(--social-size);
+    height: var(--social-size);
+  }
+}
+
+.skillsItemName {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--primary-color-dark);
+}
