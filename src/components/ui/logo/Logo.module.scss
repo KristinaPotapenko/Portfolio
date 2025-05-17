@@ -25,4 +25,10 @@
     font-weight: 700;
     color: var(--primary-color-dark);
   }
+
+  &Light {
+    p {
+      color: var(--primary-color-light);
+    }
+  }
 }
