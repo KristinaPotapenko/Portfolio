@@ -3,6 +3,9 @@ import { SocialBlock } from "../ui/social/socialBlock/SocialBlock";
 import { useState } from "react";
 import style from "./Form.module.scss";
 import { Inputs } from "./Inputs";
+import { useFetching } from "../../scripts/hooks/useFetching";
+import { postForm } from "../../scripts/helpers/emailJSForm";
+import { Loader } from "../ui/loader/Loader";
 
 export const Form = () => {
   const [formData, setFormData] = useState({
@@ -12,10 +15,22 @@ export const Form = () => {
     message: "",
   });
 
-  const handleForm = (e) => {
+  const [fetching, isLoading, error] = useFetching(async (formData) => {
+    await postForm(formData);
+  });
+
+  const handleForm = async (e) => {
     e.preventDefault();
 
-    const form = e.currentTarget;
+    await fetching(formData);
+
+    !error &&
+      setFormData({
+        name: "",
+        email: "",
+        website: "",
+        message: "",
+      });
   };
 
   const handleChangeField = (e) => {
@@ -28,12 +43,18 @@ export const Form = () => {
   };
 
   return (
-    <form className={style.form} onSubmit={handleForm}>
-      <Inputs formData={formData} handleChangeField={handleChangeField} />
-      <div className={style.buttonGroup}>
-        <Button>Get In Touch</Button>
-        <SocialBlock />
-      </div>
-    </form>
+    <>
+      {isLoading && <Loader />}
+      <form className={style.form} onSubmit={handleForm}>
+        <Inputs formData={formData} handleChangeField={handleChangeField} />
+        {error && <p className={style.error}>{error}</p>}
+        <div className={style.buttonGroup}>
+          <Button disabled={isLoading} type="submit">
+            {isLoading ? "Sending..." : "Get In Touch"}
+          </Button>
+          <SocialBlock />
+        </div>
+      </form>
+    </>
   );
 };

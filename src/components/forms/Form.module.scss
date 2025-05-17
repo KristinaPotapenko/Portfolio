@@ -9,3 +9,8 @@
   display: flex;
   gap: 24px;
 }
+
+.error {
+  font-weight: 600;
+  color: var(--color-error);
+}
