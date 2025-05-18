@@ -4,11 +4,13 @@ import style from "./ProjectsSection.module.scss";
 
 export const ProjectsSection = () => {
   return (
-    <div className="container containerDark">
-      <section className={`sectionMedium ${style.projectsSection}`}>
-        <SectionTitle isLight={true}>My Projects</SectionTitle>
-        <ProjectsList />
-      </section>
+    <div className="containerDark">
+      <div className="container">
+        <section className={`sectionMedium ${style.projectsSection}`}>
+          <SectionTitle isLight={true}>My Projects</SectionTitle>
+          <ProjectsList />
+        </section>
+      </div>
     </div>
   );
 };
