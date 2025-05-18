@@ -6,16 +6,16 @@ export const Navigation = () => {
   return (
     <nav>
       <ul className={style.navigationList}>
-        <NavLink to="about" smooth={true} duration={500}>
+        <NavLink to="about" smooth="easeInOutCubic">
           About Me
         </NavLink>
-        <NavLink to="skills" smooth={true} duration={500}>
+        <NavLink to="skills" smooth="easeInOutCubic">
           Skills
         </NavLink>
-        <NavLink to="project" smooth={true} duration={500}>
+        <NavLink to="projects" smooth="easeInOutCubic">
           Project
         </NavLink>
-        <NavLink to="contact" smooth={true} duration={500}>
+        <NavLink to="contact" smooth="easeInOutCubic">
           Contact me
         </NavLink>
       </ul>
