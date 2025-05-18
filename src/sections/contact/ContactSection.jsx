@@ -5,7 +5,7 @@ import style from "./ContactSection.module.scss";
 export const ContactSection = () => {
   return (
     <div className="container">
-      <section className={`sectionMedium ${style.contactSection}`}>
+      <section className={`sectionBig ${style.contactSection}`}>
         <Form />
         <ContactContent />
       </section>
