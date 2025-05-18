@@ -15,7 +15,12 @@ export const ProjectContent = ({ number, title, description, href }) => {
       <p className={style.projectNumber}>{formattedNumber}</p>
       <h3 className={style.projectTitle}>{title}</h3>
       <SectionDescription marginBottom="24px">{description}</SectionDescription>
-      <a className={style.projectLink} href={href}>
+      <a
+        className={style.projectLink}
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         <ReadMoreIcon />
       </a>
     </div>
