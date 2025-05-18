@@ -10,11 +10,11 @@
   height: 186px;
   border: var(--border-dark);
   border-radius: var(--border-radius-small);
-  transition: all 0.3ms ease;
-  cursor: pointer;
+  transition: all 0.7s ease;
 
   @include hover {
     background-color: var(--primary-color-dark);
+    transform: scale(1.1);
 
     path {
       fill: var(--primary-color-light);

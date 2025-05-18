@@ -1,4 +1,11 @@
+@use "../../styles/abstracts/media" as *;
+
 .image {
   max-width: 400px;
   border-radius: var(--border-radius-large);
+  transition: transform 0.3s ease;
+
+  @include hover {
+    transform: scale(1.05);
+  }
 }
