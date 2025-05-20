@@ -1,5 +1,5 @@
 import { Form } from "../../components/forms/Form";
-import { ContactContent } from "../../contact/ContactContent";
+import { ContactContent } from "../../components/contact/ContactContent/ContactContent";
 import style from "./ContactSection.module.scss";
 
 export const ContactSection = () => {

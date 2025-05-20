@@ -1,4 +1,4 @@
-import styleHeading from "../components/ui/sectionTitle/Heading.module.scss";
+import styleHeading from "../../../components/ui/sectionTitle/Heading.module.scss";
 
 export const ContactTitle = () => {
   return (
