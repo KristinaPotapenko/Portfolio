@@ -1,4 +1,4 @@
-import { HeroContent } from "../../components/hero/HeroContent";
+import { HeroContent } from "../../components/hero/HeroContent/HeroContent";
 import { HeroImage } from "../../components/hero/HeroImage";
 import style from "./HeroSection.module.scss";
 

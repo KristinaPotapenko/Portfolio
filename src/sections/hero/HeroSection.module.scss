@@ -1,3 +1,5 @@
+@use "../../styles/abstracts/media" as *;
+
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -15,4 +17,8 @@
   justify-content: space-between;
   gap: 24px;
   animation: fadeInUp 0.8s ease-out;
+
+  @include tablet {
+    flex-direction: column-reverse;
+  }
 }
