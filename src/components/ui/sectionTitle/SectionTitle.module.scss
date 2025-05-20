@@ -1,8 +1,21 @@
+@use "../../../styles/abstracts/media" as *;
+@use "../../../styles/abstracts/mixins" as *;
+
 .title {
   margin-bottom: 80px;
   font-size: 48px;
   font-weight: 400;
   color: var(--primary-color-dark);
+
+  @include fluid-text(48, 28);
+
+  @include tablet {
+    margin-bottom: 60px;
+  }
+
+  @include mobile {
+    margin-bottom: 40px;
+  }
 
   &Block {
     margin-bottom: 40px;

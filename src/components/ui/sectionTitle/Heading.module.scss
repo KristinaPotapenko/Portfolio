@@ -1,19 +1,28 @@
+@use "../../../styles/abstracts/media" as *;
+@use "../../../styles/abstracts/mixins" as *;
+
 .title {
+  @include fluid-text(48, 28);
+
   margin-bottom: 32px;
   max-width: 540px;
-  font-size: 48px;
   font-weight: 400;
   color: var(--primary-color-dark);
+
+  @include tablet {
+    text-align: center;
+  }
 
   &Strong {
     font-weight: 800;
   }
 
   &Decoration {
+    @include fluid-text(48, 28);
+
     position: relative;
     display: inline-block;
     font-weight: 700;
-    font-size: 48px;
     line-height: 1.2;
 
     &Stroke {
