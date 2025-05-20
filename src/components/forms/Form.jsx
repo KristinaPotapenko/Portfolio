@@ -6,6 +6,7 @@ import { Inputs } from "./Inputs";
 import { useFetching } from "../../scripts/hooks/useFetching";
 import { postForm } from "../../scripts/helpers/emailJSForm";
 import { Loader } from "../ui/loader/Loader";
+import { useNoScroll } from "../../scripts/hooks/useNoScroll";
 
 export const Form = () => {
   const [formData, setFormData] = useState({
@@ -18,6 +19,8 @@ export const Form = () => {
   const [fetching, isLoading, error] = useFetching(async (formData) => {
     await postForm(formData);
   });
+
+  useNoScroll(isLoading);
 
   const handleForm = async (e) => {
     e.preventDefault();
