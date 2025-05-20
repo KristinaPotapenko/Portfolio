@@ -1,0 +1,30 @@
+@use "../../../styles/abstracts/media" as *;
+@use "../../../styles/abstracts/mixins" as *;
+
+.sliderButton {
+  @include reset-button;
+
+  margin-top: calc(550px / 2);
+  transition: transform 0.3s ease;
+  cursor: pointer;
+
+  @include hover {
+    transform: scale(1.1);
+  }
+
+  svg {
+    @include square(32px);
+
+    path {
+      stroke: var(--primary-color-light);
+    }
+  }
+
+  &Left {
+    transform: rotate(180deg);
+
+    @include hover {
+      transform: scale(1.1) rotate(180deg);
+    }
+  }
+}

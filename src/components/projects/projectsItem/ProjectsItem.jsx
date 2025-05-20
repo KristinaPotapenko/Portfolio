@@ -2,16 +2,12 @@ import { ProjectContent } from "./ProjectContent";
 import { ProjectImage } from "./ProjectImage";
 import style from "./ProjectsItem.module.scss";
 
-export const ProjectsItem = ({ image, number, title, description, href }) => {
+export const ProjectsItem = ({ image, id, title, description, href }) => {
   return (
-    <li
-      className={`${style.projectsItem} ${
-        Number(number) % 2 === 0 && style.projectsItemReverse
-      }`}
-    >
+    <li className={`${style.projectsItem}`}>
       <ProjectImage image={image} />
       <ProjectContent
-        number={number}
+        id={id}
         title={title}
         description={description}
         href={href}

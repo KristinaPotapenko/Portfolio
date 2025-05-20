@@ -17,14 +17,6 @@
   @include mobile {
     gap: 28px;
   }
-
-  &Reverse {
-    flex-direction: row-reverse;
-
-    @include tablet {
-      flex-direction: column;
-    }
-  }
 }
 
 .projectImage {
@@ -37,6 +29,7 @@
 .projectContent {
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
   gap: 28px;
 }
 
