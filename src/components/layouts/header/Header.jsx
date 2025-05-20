@@ -12,8 +12,8 @@ export const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   useNoScroll(isOpen);
 
-  const handleChangeOpen = () => {
-    setIsOpen(!isOpen);
+  const handleChangeOpen = (isOpen = false) => {
+    setIsOpen(isOpen);
   };
 
   return (
@@ -25,17 +25,11 @@ export const Header = () => {
           <Link onClick={handleChangeOpen} href="/Resume.png" download>
             Resume <DownloadIcon />
           </Link>
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className={style.closeButton}
-          >
+          <button onClick={() => setIsOpen()} className={style.closeButton}>
             <CloseIcon />
           </button>
         </div>
-        <button
-          onClick={() => setIsOpen(!isOpen)}
-          className={style.headerBurger}
-        >
+        <button onClick={() => setIsOpen(true)} className={style.headerBurger}>
           <BurgerIcon />
         </button>
       </header>
