@@ -1,18 +1,20 @@
 @use "../../../../styles/abstracts/media" as *;
+@use "../../../../styles/abstracts/mixins" as *;
 
 .socialLink {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: var(--social-size);
-  height: var(--social-size);
+  @include flex-center;
+  @include square(var(--social-size));
+
   border: var(--border-dark);
   border-radius: var(--border-radius-small);
   cursor: pointer;
 
   svg {
-    width: 24px;
-    height: 24px;
+    @include square(24px);
+
+    @include mobile {
+      @include square(20px);
+    }
 
     path {
       fill: var(--primary-color-dark);

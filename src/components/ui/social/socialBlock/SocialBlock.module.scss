@@ -1,4 +1,10 @@
+@use "../../../../styles/abstracts/media" as *;
+
 .socialBlock {
   display: flex;
   gap: 32px;
+
+  @include mobile {
+    gap: 24px;
+  }
 }
