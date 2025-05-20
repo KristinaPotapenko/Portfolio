@@ -1,13 +1,12 @@
 @use "../../../styles/abstracts/media" as *;
-@use "../../../styles/abstracts/variables" as *;
+@use "../../../styles/abstracts/mixins" as *;
 
 .button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+  @include flex-center(true);
+  @include fluid-text(20, 16);
+
   gap: 8px;
-  height: var(--button-height);
-  font-size: 20px;
+  min-height: var(--button-height);
   padding: 16px 20px;
   font-weight: 600;
   letter-spacing: 2px;
@@ -23,7 +22,8 @@
     background-color: var(--primary-color-gray);
   }
 
-  &:active {
+  &:active,
+  &:focus {
     color: var(--primary-color-dark);
     background-color: transparent;
     border: var(--border-dark);
