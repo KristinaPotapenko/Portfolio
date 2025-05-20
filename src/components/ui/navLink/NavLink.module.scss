@@ -1,11 +1,13 @@
 @use "../../../styles/abstracts/media" as *;
+@use "../../../styles/abstracts/mixins" as *;
 
 .navLink {
+  @include fluid-text(20, 16);
+
   display: flex;
-  font-size: 20px;
   font-weight: 600;
-  text-align: center;
   color: var(--primary-color-dark);
+  text-align: center;
   cursor: pointer;
 
   @include hover {
