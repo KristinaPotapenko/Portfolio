@@ -1,19 +1,81 @@
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
+@use "../../../styles/abstracts/media" as *;
+@use "../../../styles/abstracts/mixins" as *;
 
 .header {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 24px;
-  padding: 24px 0 40px 0;
-  animation: fadeIn 0.8s ease-out forwards;
+  width: 100%;
+  padding: 24px 16px 40px 16px;
+
+  &Links {
+    display: contents;
+
+    @include tablet {
+      @include flex-center;
+      @include square(100%);
+
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 2;
+      flex-direction: column;
+      gap: 32px;
+      padding: 50px 16px 0 16px;
+      background-color: var(--color-gray-500);
+      transform: translateX(100%);
+      opacity: 0;
+      visibility: hidden;
+      transition: transform 0.3s;
+
+      &.isActive {
+        transform: translateX(0);
+        opacity: 1;
+        visibility: visible;
+      }
+
+      ul {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .closeButton {
+        @include flex-center;
+        @include reset-button;
+
+        display: inline;
+        position: absolute;
+        top: 24px;
+        right: 24px;
+
+        @include hover {
+          transform: scale(1.1);
+        }
+
+        svg {
+          @include square(36px);
+
+          fill: var(--primary-color-light);
+        }
+      }
+    }
+
+    @include tablet-above {
+      .closeButton {
+        display: none;
+      }
+    }
+  }
+
+  &Burger {
+    @include reset-button;
+
+    display: none;
+    cursor: pointer;
+
+    @include tablet {
+      display: block;
+    }
+  }
 }
