@@ -1,3 +1,5 @@
+@use "./media" as *;
+
 :root {
   --primary-color-dark: #000000;
   --primary-color-gray: #404040;
@@ -25,6 +27,10 @@
   --button-height: 56px;
 
   --social-size: 56px;
+
+  @include mobile {
+    --social-size: 48px;
+  }
 
   --transition-duration: 0.2s;
 }
