@@ -1,9 +1,15 @@
-import { MainPage } from "./pages/main/MainPage";
+import { AppRoutes } from "./Routes/AppRoutes";
+import { Header } from "./components/layouts/header/Header";
+import { Footer } from "./components/layouts/footer/Footer";
 
 function App() {
   return (
     <div>
-      <MainPage />
+      <div className="wrapper">
+        <Header />
+        <AppRoutes />
+        <Footer />
+      </div>
     </div>
   );
 }
