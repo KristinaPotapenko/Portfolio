@@ -1,13 +1,12 @@
 @use "../../../styles/abstracts/media" as *;
+@use "../../../styles/abstracts/mixins" as *;
 
 .skillsItemWrapper {
-  display: flex;
+  @include square(186px);
+  @include flex-center;
+
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
   gap: 32px;
-  width: 186px;
-  height: 186px;
   border: var(--border-dark);
   border-radius: var(--border-radius-small);
   transition: all 0.7s ease;
@@ -25,9 +24,12 @@
     }
   }
 
+  @include tablet {
+    @include square(160px);
+  }
+
   svg {
-    width: var(--social-size);
-    height: var(--social-size);
+    @include square(var(--social-size));
   }
 }
 
