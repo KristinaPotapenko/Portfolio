@@ -1,10 +1,11 @@
 import { HeroHeading } from "./HeroHeading";
-import { SectionDescription } from "../ui/sectionDescription/SectionDescription";
-import { SocialBlock } from "../ui/social/socialBlock/SocialBlock";
+import { SectionDescription } from "../../ui/sectionDescription/SectionDescription";
+import { SocialBlock } from "../../ui/social/socialBlock/SocialBlock";
+import style from "./HeroContent.module.scss";
 
 export const HeroContent = () => {
   return (
-    <div>
+    <div className={style.heroContent}>
       <HeroHeading />
       <SectionDescription marginBottom="60px">
         I have taught myself web development and am highly motivated to continue

@@ -1,4 +1,4 @@
-import PersonImage from "../../assets/images/hero.jpg";
+import PersonImage from "../../../assets/images/hero.jpg";
 import style from "./HeroImage.module.scss";
 
 export const HeroImage = () => {

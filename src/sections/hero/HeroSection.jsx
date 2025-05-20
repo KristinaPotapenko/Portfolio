@@ -1,5 +1,5 @@
 import { HeroContent } from "../../components/hero/HeroContent/HeroContent";
-import { HeroImage } from "../../components/hero/HeroImage";
+import { HeroImage } from "../../components/hero/HeroImage/HeroImage";
 import style from "./HeroSection.module.scss";
 
 export const HeroSection = () => {

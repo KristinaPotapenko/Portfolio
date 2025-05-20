@@ -1,0 +1,14 @@
+@use "../../../styles/abstracts/media" as *;
+
+.heroContent {
+  display: flex;
+  flex-direction: column;
+
+  @include tablet {
+    align-items: center;
+
+    p {
+      text-align: center;
+    }
+  }
+}

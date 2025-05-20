@@ -1,0 +1,21 @@
+@use "../../../styles/abstracts/media" as *;
+
+.image {
+  max-width: 400px;
+  width: 100%;
+  border-radius: var(--border-radius-large);
+  transition: transform 0.3s ease;
+
+  @include hover {
+    transform: scale(1.05);
+  }
+
+  @include tablet {
+    max-width: 70%;
+    max-height: 500px;
+    width: 100%;
+    margin-bottom: 24px;
+    object-fit: cover;
+    object-position: 0px -30px;
+  }
+}

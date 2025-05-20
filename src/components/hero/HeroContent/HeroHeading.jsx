@@ -1,4 +1,4 @@
-import style from "../ui/sectionTitle/Heading.module.scss";
+import style from "../../ui/sectionTitle/Heading.module.scss";
 
 export const HeroHeading = () => {
   return (
@@ -9,7 +9,7 @@ export const HeroHeading = () => {
       <span className={style.titleDecoration}>
         <span className={style.titleDecorationStroke}>Developer</span>
         <span className={style.titleDecorationFill}>Developer</span>
-      </span>
+      </span>{" "}
       Based In
       <span className={style.titleStrong}> Ukraine</span>
     </h1>
