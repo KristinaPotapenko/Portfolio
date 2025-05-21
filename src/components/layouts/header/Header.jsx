@@ -22,7 +22,11 @@ export const Header = () => {
         <Logo />
         <div className={`${style.headerLinks} ${isOpen && style.isActive}`}>
           <Navigation onClick={handleChangeOpen} />
-          <Link onClick={handleChangeOpen} href="/Resume.png" download>
+          <Link
+            onClick={handleChangeOpen}
+            href="https://kristinapotapenko.github.io/Portfolio/Resume.png"
+            download
+          >
             Resume <DownloadIcon />
           </Link>
           <button onClick={() => setIsOpen()} className={style.closeButton}>
