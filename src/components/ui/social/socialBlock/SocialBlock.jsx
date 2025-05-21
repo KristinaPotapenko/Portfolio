@@ -2,7 +2,7 @@ import { SocialItem } from "../socialItem/SocialItem";
 import { ReactComponent as InstagramIcon } from "../../../../assets/icons/instagram.svg";
 import { ReactComponent as TelegramIcon } from "../../../../assets/icons/telegram.svg";
 import { ReactComponent as GmailIcon } from "../../../../assets/icons/gmail.svg";
-import { ReactComponent as LinkedinIcon } from "../../../../assets/icons/linkedin.svg";
+import { ReactComponent as GithubIcon } from "../../../../assets/icons/github.svg";
 import style from "./SocialBlock.module.scss";
 
 export const SocialBlock = () => {
@@ -17,8 +17,8 @@ export const SocialBlock = () => {
       <SocialItem href="mailto:potapenkokristina10@gmail.com">
         <GmailIcon />
       </SocialItem>
-      <SocialItem href="https://www.linkedin.com/in/kristina-potapenko-396876249/">
-        <LinkedinIcon />
+      <SocialItem href="https://github.com/KristinaPotapenko">
+        <GithubIcon />
       </SocialItem>
     </ul>
   );
