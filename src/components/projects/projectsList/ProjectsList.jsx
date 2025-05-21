@@ -3,9 +3,8 @@ import { Slider } from "../../slider/Slider";
 import { Pagination } from "../../ui/pagination/Pagination";
 import { SliderButton } from "../../ui/sliderButton/SliderButton";
 import { ProjectsItem } from "../projectsItem/ProjectsItem";
+import { AnimationWrapper } from "../../wrappers/AnimationWrapper/AnimationWrapper";
 import { projects } from "./projects";
-
-import { motion, AnimatePresence } from "framer-motion";
 import style from "./ProjectsList.module.scss";
 
 export const ProjectsList = () => {
@@ -35,25 +34,16 @@ export const ProjectsList = () => {
       <SliderButton showProject={showPrevProject} isLeft={true} />
       <div className={style.projectsListWrapper}>
         <ul className={style.projectsList}>
-          <AnimatePresence mode="wait">
-            <motion.li
+          <AnimationWrapper projects={projects} activeSlide={activeSlide}>
+            <ProjectsItem
               key={projects[activeSlide].id}
-              initial={{ opacity: 0, x: 50 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -50 }}
-              transition={{ duration: 0.5 }}
-              className={style.projectsItem}
-            >
-              <ProjectsItem
-                key={projects[activeSlide].id}
-                image={projects[activeSlide].image}
-                id={projects[activeSlide].id}
-                title={projects[activeSlide].title}
-                description={projects[activeSlide].description}
-                href={projects[activeSlide].href}
-              />
-            </motion.li>
-          </AnimatePresence>
+              image={projects[activeSlide].image}
+              id={projects[activeSlide].id}
+              title={projects[activeSlide].title}
+              description={projects[activeSlide].description}
+              href={projects[activeSlide].href}
+            />
+          </AnimationWrapper>
         </ul>
         <Pagination
           projects={projects}
