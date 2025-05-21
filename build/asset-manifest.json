@@ -1,0 +1,40 @@
+{
+  "files": {
+    "main.css": "/Portfolio/static/css/main.005b4589.css",
+    "main.js": "/Portfolio/static/js/main.13dcb88e.js",
+    "static/media/projectPortfolio.png": "/Portfolio/static/media/projectPortfolio.ed71e909f51edc5bdab3.png",
+    "static/media/projectsBritlex.png": "/Portfolio/static/media/projectsBritlex.bd42eb6142bbffe5621a.png",
+    "static/media/hero.jpg": "/Portfolio/static/media/hero.dd8a43dc896f88521756.jpg",
+    "static/media/projectMoneyGuard.png": "/Portfolio/static/media/projectMoneyGuard.6e9499fea53906d5f265.png",
+    "static/media/sora-v12-latin-700.woff2": "/Portfolio/static/media/sora-v12-latin-700.992917b41d0748f9c424.woff2",
+    "static/media/sora-v12-latin-600.woff2": "/Portfolio/static/media/sora-v12-latin-600.be83f4493a67d69baa56.woff2",
+    "static/media/sora-v12-latin-800.woff2": "/Portfolio/static/media/sora-v12-latin-800.3cc670238a919889b91c.woff2",
+    "static/media/sora-v12-latin-regular.woff2": "/Portfolio/static/media/sora-v12-latin-regular.bf137eed3f76f2169a6d.woff2",
+    "static/media/postgresql.svg": "/Portfolio/static/media/postgresql.3e7d204b2e95db923cab93e53dc17039.svg",
+    "static/media/react.svg": "/Portfolio/static/media/react.9d1a41083651309fc2d2d84afc16aa44.svg",
+    "static/media/scss.svg": "/Portfolio/static/media/scss.757dd92880996870562408126e62f27c.svg",
+    "static/media/github.svg": "/Portfolio/static/media/github.fdc048908dffb6d0f52bc38bfbd82611.svg",
+    "static/media/figma.svg": "/Portfolio/static/media/figma.4921b4881dd0cdb841521273a09acaaf.svg",
+    "static/media/redux.svg": "/Portfolio/static/media/redux.73ad51cdc331c548907d7d438fe443d4.svg",
+    "static/media/instagram.svg": "/Portfolio/static/media/instagram.0dd482fa842bd7851f54ff91a01be94a.svg",
+    "static/media/git.svg": "/Portfolio/static/media/git.890ec924b44c2821c2667459bbaeea25.svg",
+    "static/media/html.svg": "/Portfolio/static/media/html.10a58682adde3b5e6f2be37de92758cf.svg",
+    "static/media/javascript.svg": "/Portfolio/static/media/javascript.6e60e80034afac32e1afcb668ee64c3c.svg",
+    "static/media/css.svg": "/Portfolio/static/media/css.0b435e818710854aebd35efe9280f77c.svg",
+    "index.html": "/Portfolio/index.html",
+    "static/media/gmail.svg": "/Portfolio/static/media/gmail.ecae85d262909657683fa110cce3051d.svg",
+    "static/media/readMore.svg": "/Portfolio/static/media/readMore.1cd3cc303f71ffcc8697ee43a8c18a28.svg",
+    "static/media/webpack.svg": "/Portfolio/static/media/webpack.9c009b35964219d77a2fec607c22cda0.svg",
+    "static/media/telegram.svg": "/Portfolio/static/media/telegram.d32036e023ee7574bc705f27f6764a74.svg",
+    "static/media/download.svg": "/Portfolio/static/media/download.4f8d9209d5fefc911e2b9b9665498694.svg",
+    "static/media/close.svg": "/Portfolio/static/media/close.2001e956d267bc9b1a2349ee0a8ee521.svg",
+    "static/media/arrow.svg": "/Portfolio/static/media/arrow.de5575a959bb7d3c4b3ee98cbf7e136d.svg",
+    "static/media/burger.svg": "/Portfolio/static/media/burger.507308fc5fd98631d1364b3d98ecd811.svg",
+    "main.005b4589.css.map": "/Portfolio/static/css/main.005b4589.css.map",
+    "main.13dcb88e.js.map": "/Portfolio/static/js/main.13dcb88e.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.005b4589.css",
+    "static/js/main.13dcb88e.js"
+  ]
+}
