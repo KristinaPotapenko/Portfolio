@@ -4,14 +4,14 @@ import style from "./ProjectsItem.module.scss";
 
 export const ProjectsItem = ({ image, id, title, description, href }) => {
   return (
-    <li className={`${style.projectsItem}`}>
+    <div className={`${style.projectsItem}`}>
       <ProjectImage image={image} />
       <ProjectContent
-        id={id}
+        number={id}
         title={title}
         description={description}
         href={href}
       />
-    </li>
+    </div>
   );
 };

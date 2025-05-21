@@ -1,14 +1,15 @@
+import { useState } from "react";
 import { Slider } from "../../slider/Slider";
 import { Pagination } from "../../ui/pagination/Pagination";
 import { SliderButton } from "../../ui/sliderButton/SliderButton";
 import { ProjectsItem } from "../projectsItem/ProjectsItem";
 import { projects } from "./projects";
+
+import { motion, AnimatePresence } from "framer-motion";
 import style from "./ProjectsList.module.scss";
-import { useState } from "react";
 
 export const ProjectsList = () => {
   const [activeSlide, setActiveSlide] = useState(0);
-  console.log(activeSlide);
 
   const showNextProject = () => {
     setActiveSlide((indexSlide) => {
@@ -34,14 +35,25 @@ export const ProjectsList = () => {
       <SliderButton showProject={showPrevProject} isLeft={true} />
       <div className={style.projectsListWrapper}>
         <ul className={style.projectsList}>
-          <ProjectsItem
-            key={projects[activeSlide].number}
-            image={projects[activeSlide].image}
-            id={projects[activeSlide].id}
-            title={projects[activeSlide].title}
-            description={projects[activeSlide].description}
-            href={projects[activeSlide].href}
-          />
+          <AnimatePresence mode="wait">
+            <motion.li
+              key={projects[activeSlide].id}
+              initial={{ opacity: 0, x: 50 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -50 }}
+              transition={{ duration: 0.5 }}
+              className={style.projectsItem}
+            >
+              <ProjectsItem
+                key={projects[activeSlide].id}
+                image={projects[activeSlide].image}
+                id={projects[activeSlide].id}
+                title={projects[activeSlide].title}
+                description={projects[activeSlide].description}
+                href={projects[activeSlide].href}
+              />
+            </motion.li>
+          </AnimatePresence>
         </ul>
         <Pagination
           projects={projects}

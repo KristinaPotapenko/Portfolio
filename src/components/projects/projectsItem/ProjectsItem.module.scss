@@ -6,16 +6,19 @@
   align-items: center;
   justify-content: space-between;
   gap: 60px;
+  min-height: 550px;
   padding-inline: 80px;
 
-  @include tablet {
+  @include desktop {
     flex-direction: column;
     align-items: stretch;
+    justify-content: start;
+    min-height: 710px;
     padding-inline: 0;
   }
 
   @include mobile {
-    gap: 28px;
+    gap: 40px;
   }
 }
 
