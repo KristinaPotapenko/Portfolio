@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Slider } from "../../slider/Slider";
+import { Slider } from "../../wrappers/SliderWrapper/Slider";
 import { Pagination } from "../../ui/pagination/Pagination";
 import { SliderButton } from "../../ui/sliderButton/SliderButton";
 import { ProjectsItem } from "../projectsItem/ProjectsItem";
