@@ -25,6 +25,6 @@ export const projects = [
     title: "Kris Portfolio",
     description:
       "The project was created to present my skills, experience, and work samples. The goal was to implement a user-friendly, modern, and stylish website that demonstrates my skills in front-end development using the React library.",
-    href: "/",
+    href: "https://kristinapotapenko.github.io/Portfolio/",
   },
 ];
