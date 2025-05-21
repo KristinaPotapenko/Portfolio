@@ -36,7 +36,7 @@ A modern and responsive **Portfolio** web application built with **React**, show
 
 ## 📷 Preview
 
-![Portfolio Preview](https://github.com/yourusername/yourrepo/blob/main/path-to-screenshot.png)  
+![Portfolio Preview](https://github.com/KristinaPotapenko/Portfolio/blob/main/static/preview-placeholder.png)  
 
 ---
 
