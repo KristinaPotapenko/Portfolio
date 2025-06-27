@@ -24,7 +24,7 @@ export const Header = () => {
           <Navigation onClick={handleChangeOpen} />
           <Link
             onClick={handleChangeOpen}
-            href="https://kristinapotapenko.github.io/Portfolio/Resume.png"
+            href="https://kristinapotapenko.github.io/Portfolio/Resume.pdf"
             download
           >
             Resume <DownloadIcon />
