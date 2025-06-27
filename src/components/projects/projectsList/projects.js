@@ -1,6 +1,7 @@
 import projectBritlex from "../../../assets/images/projectsBritlex.png";
 import projectMoneyGuard from "../../../assets/images/projectMoneyGuard.png";
 import projectPortfolio from "../../../assets/images/projectPortfolio.png";
+import projectStreamVibe from "../../../assets/images/projectStreamVibe.png";
 
 export const projects = [
   {
@@ -26,5 +27,13 @@ export const projects = [
     description:
       "The project was created to present my skills, experience, and work samples. The goal was to implement a user-friendly, modern, and stylish website that demonstrates my skills in front-end development using the React library.",
     href: "https://kristinapotapenko.github.io/Portfolio/",
+  },
+  {
+    id: "4",
+    image: projectStreamVibe,
+    title: "StreamVibe",
+    description:
+      "Modern web application for searching and watching movies and TV shows with an intuitive interface and smooth user interaction. React is used to create a fast and responsive UI, and Redux Toolkit provides efficient state management of the application. The project demonstrates my skills in working with modern front-end technologies, as well as the ability to create user-friendly solutions.",
+    href: "https://kristinapotapenko.github.io/StreamVibe/",
   },
 ];
