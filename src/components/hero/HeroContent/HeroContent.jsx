@@ -8,16 +8,12 @@ export const HeroContent = () => {
     <div className={style.heroContent}>
       <HeroHeading />
       <SectionDescription marginBottom="60px">
-        I have acquired knowledge of web development on my own and have a strong
-        motivation to develop as a Front-end Developer. I have practical
-        experience in creating user-friendly, adaptive, and aesthetic interfaces
-        in my own pet projects, and I also participated in the team development
-        of one of them. I started my career in design, so I have a good
-        understanding of Figma and UI/UX principles. Over time, I realized that
-        I get the most pleasure from developing and implementing ideas in code.
-        I love creating new projects, improving my skills, and working on
-        user-centered solutions. I'm looking for an opportunity to join a team
-        where I can grow as a developer and contribute to the overall result.
+        Frontend Developer passionate about crafting intuitive, visually
+        appealing interfaces. With a strong foundation in UI/UX principles
+        (Figma) and hands-on experience in personal projects, I thrive on
+        turning ideas into clean, responsive code. Eager to contribute
+        creativity and problem-solving skills to a collaborative team while
+        growing as a developer.
       </SectionDescription>
       <SocialBlock />
     </div>
