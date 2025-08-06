@@ -23,21 +23,25 @@
       flex-direction: column;
       gap: 32px;
       padding: 50px 16px 0 16px;
-      background-color: var(--color-gray-500);
+      background: linear-gradient(
+        120deg,
+        rgba(30, 30, 30, 0.55),
+        rgba(60, 60, 60, 0.35)
+      );
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+      border: 1px solid rgba(255, 255, 255, 0.15);
       transform: translateX(100%);
-      opacity: 0;
-      visibility: hidden;
-      transition: transform 0.3s;
-
-      &.isActive {
-        transform: translateX(0);
-        opacity: 1;
-        visibility: visible;
-      }
 
       ul {
         flex-direction: column;
         align-items: center;
+
+        a {
+          color: var(--primary-color-light);
+          text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+        }
       }
 
       .closeButton {
@@ -47,7 +51,8 @@
         display: inline;
         position: absolute;
         top: 24px;
-        right: 24px;
+        right: 40px;
+        cursor: pointer;
 
         @include hover {
           transform: scale(1.1);
@@ -56,7 +61,7 @@
         svg {
           @include square(36px);
 
-          fill: var(--primary-color-light);
+          stroke: var(--primary-color-light);
         }
       }
     }
