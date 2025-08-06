@@ -4,8 +4,8 @@ export const HeroHeading = () => {
   return (
     <h1 className={style.title}>
       Hello I’am
-      <span className={style.titleStrong}> Kristina</span>
-      <span className={style.titleStrong}> Frontend </span>
+      <span className={style.titleStrong}> Kristina Frontend</span>
+      <span className={style.titleStrong}> </span>{" "}
       <span className={style.titleDecoration}>
         <span className={style.titleDecorationStroke}>Developer</span>
         <span className={style.titleDecorationFill}>Developer</span>
