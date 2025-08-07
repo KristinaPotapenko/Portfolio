@@ -25,13 +25,31 @@ export const HeroImage = () => {
         scale: 1,
         duration: 1,
         delay: 0.4,
-        ease: "back.out(1.7)",
+        ease: "elastic.out(1, 0.5)",
       }
     );
   }, []);
 
+  const handleMouseEnter = () => {
+    gsap.to(imageRef.current, {
+      scale: 1.05,
+      duration: 0.3,
+      ease: "power2.out",
+    });
+  };
+
+  const handleMouseLeave = () => {
+    gsap.to(imageRef.current, {
+      scale: 1,
+      duration: 0.3,
+      ease: "power2.out",
+    });
+  };
+
   return (
     <img
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
       ref={imageRef}
       className={style.image}
       src={PersonImage}
