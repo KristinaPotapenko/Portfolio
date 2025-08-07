@@ -6,11 +6,9 @@
 
   display: flex;
   font-weight: 600;
+  padding-inline: 4px;
   color: var(--primary-color-dark);
   text-align: center;
+  border-radius: var(--border-radius-medius);
   cursor: pointer;
-
-  @include hover {
-    font-weight: 700;
-  }
 }
