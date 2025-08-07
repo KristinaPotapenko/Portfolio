@@ -12,21 +12,21 @@ import style from "./Logo.module.scss";
 
 export const Logo = ({ isLight = false }) => {
   const logoRef = useRef(null);
+  const imageRef = useRef(null);
 
   const handleClick = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   useEffect(() => {
-    if (!logoRef.current) return;
+    if (!logoRef.current || !imageRef.current) return;
 
     const letters = logoRef.current.querySelectorAll("span");
-    const image = logoRef.current.querySelector("img");
 
     const tl = gsap.timeline({ delay: 0.3 });
 
     tl.fromTo(
-      image,
+      imageRef.current,
       {
         y: -20,
         opacity: 0,
@@ -58,14 +58,48 @@ export const Logo = ({ isLight = false }) => {
     );
   }, []);
 
+  const handleMouseEnter = () => {
+    if (!logoRef.current || !imageRef.current) return;
+
+    gsap.to(logoRef.current, {
+      scale: 1.02,
+      duration: 0.3,
+      ease: "power2.out",
+    });
+
+    gsap.to(imageRef.current, {
+      rotate: 10,
+      duration: 0.3,
+      ease: "power2.out",
+    });
+  };
+
+  const handleMouseLeave = () => {
+    if (!logoRef.current || !imageRef.current) return;
+
+    gsap.to(logoRef.current, {
+      scale: 1,
+      duration: 0.3,
+      ease: "power2.out",
+    });
+
+    gsap.to(imageRef.current, {
+      rotate: 0,
+      duration: 0.3,
+      ease: "power2.out",
+    });
+  };
+
   return (
     <Link
       ref={logoRef}
       to={ROUTES.HOME}
       onClick={handleClick}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
       className={`${style.logo} ${isLight && style.logoLight}`}
     >
-      <img src={isLight ? logoLight : logoDark} alt="logo" />
+      <img ref={imageRef} src={isLight ? logoLight : logoDark} alt="logo" />
       <p>
         {"Kris".split("").map((letter, index) => (
           <span key={index}>{letter}</span>
