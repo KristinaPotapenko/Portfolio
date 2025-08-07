@@ -36,7 +36,7 @@ export const SocialBlock = () => {
         ease: "back.out(1.7)",
       }
     );
-  }, {});
+  }, []);
 
   return (
     <ul ref={socialBlockRef} className={style.socialBlock}>
