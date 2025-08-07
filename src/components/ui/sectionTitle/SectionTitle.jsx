@@ -1,4 +1,4 @@
-import { useLayoutEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 
 import gsap from "gsap";
 import { SplitText } from "gsap/SplitText";
@@ -23,8 +23,7 @@ export const SectionTitle = ({
   const titleRef = useRef(null);
   const splitRef = useRef(null);
 
-  useLayoutEffect(() => {
-    console.log(section);
+  useEffect(() => {
     if (!section?.current || !titleRef?.current) return;
 
     document.fonts.ready.then(() => {
@@ -41,7 +40,6 @@ export const SectionTitle = ({
           trigger: section.current,
           start: "top 70%",
           end: "50% 80%",
-          markers: true,
           scrub: true,
         },
         y: -100,
