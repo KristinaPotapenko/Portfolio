@@ -31,6 +31,8 @@ export const HeroImage = () => {
   }, []);
 
   const handleMouseEnter = () => {
+    if (!imageRef.current) return;
+
     gsap.to(imageRef.current, {
       scale: 1.05,
       duration: 0.3,
@@ -39,6 +41,8 @@ export const HeroImage = () => {
   };
 
   const handleMouseLeave = () => {
+    if (!imageRef.current) return;
+
     gsap.to(imageRef.current, {
       scale: 1,
       duration: 0.3,
