@@ -17,19 +17,83 @@
   box-sizing: border-box;
   outline: none;
   cursor: pointer;
+  transition: all 0.35s ease;
 
-  @include hover {
-    background-color: var(--primary-color-gray);
+  &::before {
+    content: "";
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.4),
+      rgba(255, 255, 255, 0.2)
+    );
+    transform: translateY(-110%);
+    transition: transform 0.6s cubic-bezier(0.65, 0, 0.35, 1);
+    z-index: -1;
   }
 
-  &:active,
-  &:focus {
-    color: var(--primary-color-dark);
-    background-color: transparent;
-    border: var(--border-dark);
+  @include hover {
+    color: var(--color-gray-100);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+
+    &::before {
+      transform: translateY(0);
+    }
 
     path {
-      stroke: var(--primary-color-dark);
+      stroke: var(--color-gray-100);
+      animation: icon-pulse 0.6s ease;
     }
+  }
+
+  &:focus {
+    color: var(--color-gray-100);
+    background-color: var(--primary-color-dark);
+    border-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.2);
+    animation: none;
+
+    &::before {
+      background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.2),
+        rgba(255, 255, 255, 0.1)
+      );
+      transform: translateY(0);
+    }
+  }
+
+  &:active {
+    transform: translateY(1px) scale(0.98);
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+    transition: all 0.2s ease;
+
+    &::before {
+      background: linear-gradient(
+        135deg,
+        rgba(0, 0, 0, 0.2),
+        rgba(0, 0, 0, 0.1)
+      );
+    }
+  }
+
+  path {
+    stroke: var(--primary-color-light);
+    transition: all 0.5s ease;
+  }
+}
+
+@keyframes icon-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
   }
 }
