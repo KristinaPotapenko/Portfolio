@@ -16,7 +16,7 @@ export const HeroContent = ({ section }) => {
         creativity and problem-solving skills to a collaborative team while
         growing as a developer.
       </SectionDescription>
-      <SocialBlock />
+      <SocialBlock section={section} reverse={true} />
     </div>
   );
 };

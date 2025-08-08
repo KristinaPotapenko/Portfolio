@@ -11,7 +11,7 @@ import { ReactComponent as GithubIcon } from "../../../../assets/icons/github.sv
 
 import style from "./SocialBlock.module.scss";
 
-export const SocialBlock = () => {
+export const SocialBlock = ({ section, reverse = false }) => {
   const socialBlockRef = useRef(null);
 
   useEffect(() => {
@@ -19,23 +19,57 @@ export const SocialBlock = () => {
 
     const items = socialBlockRef.current.querySelectorAll("li");
 
-    gsap.fromTo(
+    const appearTl = gsap.timeline({
+      defaults: { stagger: 0.2, ease: "back.out(1.7)" },
+      onComplete: () => startScrollAnimation(),
+    });
+
+    appearTl.fromTo(
       items,
-      {
-        y: 30,
-        opacity: 0,
-        scale: 0.9,
-      },
-      {
-        y: 0,
-        opacity: 1,
-        scale: 1,
-        stagger: 0.2,
-        duration: 0.8,
-        delay: 0.4,
-        ease: "back.out(1.7)",
-      }
+      { y: 30, opacity: 0, scale: 0.9 },
+      { y: 0, opacity: 1, scale: 1, duration: 0.8, delay: 0.4 }
     );
+
+    function startScrollAnimation() {
+      if (reverse) {
+        gsap.fromTo(
+          items,
+          {
+            y: 0,
+            opacity: 1,
+          },
+          {
+            y: -50,
+            opacity: 0,
+            stagger: 0.2,
+            ease: "power1.inOut",
+            scrollTrigger: {
+              trigger: section.current,
+              start: "50% 20%",
+              end: "bottom 30%",
+              scrub: true,
+            },
+          }
+        );
+      } else {
+        gsap.fromTo(
+          items,
+          { y: -30, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            stagger: 0.2,
+            ease: "power1.inOut",
+            scrollTrigger: {
+              trigger: section.current,
+              start: "-40% 30%",
+              end: "50% 65%",
+              scrub: true,
+            },
+          }
+        );
+      }
+    }
   }, []);
 
   return (

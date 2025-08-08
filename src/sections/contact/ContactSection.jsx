@@ -16,7 +16,7 @@ export const ContactSection = () => {
   return (
     <div ref={sectionRef} className="container">
       <section className={`sectionBig ${style.contactSection}`}>
-        <Form />
+        {isMounted && <Form section={sectionRef} />}
         {isMounted && <ContactContent section={sectionRef} />}
       </section>
     </div>

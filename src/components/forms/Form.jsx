@@ -11,7 +11,7 @@ import { checkField } from "../../scripts/helpers/checkField";
 
 import style from "./Form.module.scss";
 
-export const Form = () => {
+export const Form = ({ section }) => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -70,7 +70,7 @@ export const Form = () => {
           <Button disabled={isLoading} type="submit">
             {isLoading ? "Sending..." : "Get In Touch"}
           </Button>
-          <SocialBlock />
+          <SocialBlock section={section} />
         </div>
       </form>
     </>
