@@ -1,12 +1,13 @@
 import { HeroHeading } from "./HeroHeading";
 import { SectionDescription } from "../../ui/sectionDescription/SectionDescription";
 import { SocialBlock } from "../../ui/social/socialBlock/SocialBlock";
+
 import style from "./HeroContent.module.scss";
 
-export const HeroContent = () => {
+export const HeroContent = ({ section }) => {
   return (
     <div className={style.heroContent}>
-      <HeroHeading />
+      <HeroHeading section={section} />
       <SectionDescription marginBottom="60px">
         Frontend Developer passionate about crafting intuitive, visually
         appealing interfaces. With a strong foundation in UI/UX principles

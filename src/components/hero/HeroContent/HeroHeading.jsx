@@ -1,35 +1,49 @@
 import { useEffect, useRef } from "react";
 
 import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+import { animateTitle } from "../../ui/sectionTitle/animateTitle";
 
 import style from "../../ui/sectionTitle/Heading.module.scss";
 
-export const HeroHeading = () => {
+gsap.registerPlugin(ScrollTrigger);
+
+export const HeroHeading = ({ section }) => {
   const titleRef = useRef(null);
+  const animationRef = useRef({ appear: null, scroll: null });
 
   useEffect(() => {
-    if (!titleRef.current) return;
+    if (!titleRef?.current) return;
 
-    const words = titleRef.current.querySelectorAll("span");
+    const localRef = animationRef;
 
-    gsap.fromTo(
-      words,
-      {
-        opacity: 0,
-        y: 20,
-        scale: 0.95,
+    localRef.current.appear = animateTitle(titleRef, {
+      onComplete: () => {
+        if (section?.current) {
+          localRef.current.scroll = animateTitle(
+            titleRef,
+            {
+              scrollTrigger: {
+                trigger: section.current,
+                start: "40% 30%",
+                end: "60% 20%",
+                scrub: true,
+              },
+            },
+            true
+          );
+        }
       },
-      {
-        opacity: 1,
-        y: 0,
-        scale: 1,
-        stagger: 0.2,
-        duration: 0.8,
-        delay: 0.4,
-        ease: "back.out(1.7)",
-      }
-    );
-  }, []);
+    });
+
+    return () => {
+      const { appear, scroll } = localRef.current;
+
+      if (appear) appear.kill();
+      if (scroll) ScrollTrigger.getById(scroll.scrollTrigger)?.kill();
+    };
+  }, [section]);
 
   return (
     <h1 ref={titleRef} className={style.title}>

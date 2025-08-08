@@ -1,12 +1,22 @@
+import { useEffect, useRef, useState } from "react";
+
 import { HeroContent } from "../../components/hero/HeroContent/HeroContent";
 import { HeroImage } from "../../components/hero/HeroImage/HeroImage";
+
 import style from "./HeroSection.module.scss";
 
 export const HeroSection = () => {
+  const sectionRef = useRef(null);
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
   return (
-    <div className="container">
+    <div ref={sectionRef} className="container">
       <section className={`sectionMedium ${style.heroSection}`}>
-        <HeroContent />
+        {isMounted && <HeroContent section={sectionRef} />}
         <HeroImage />
       </section>
     </div>

@@ -1,11 +1,12 @@
-import { SectionDescription } from "../../ui/sectionDescription/SectionDescription";
 import { ContactTitle } from "./ContactTitle";
+import { SectionDescription } from "../../ui/sectionDescription/SectionDescription";
+
 import style from "./ContactContent.module.scss";
 
-export const ContactContent = () => {
+export const ContactContent = ({ section }) => {
   return (
     <div className={style.contactContent}>
-      <ContactTitle />
+      <ContactTitle section={section} />
       <SectionDescription>
         I seek to push the limits of creativity to create high-engaging,
         user-friendly, and memorable interactive experiences.
