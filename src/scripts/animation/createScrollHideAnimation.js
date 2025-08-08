@@ -10,14 +10,6 @@ export const createScrollHideAnimation = ({
   scale = 1.1,
   rotationZ = 0,
 }) => {
-  console.log({
-    target,
-    trigger,
-    x,
-    scale,
-    rotationZ,
-  });
-
   if (!target?.current || !trigger?.current) return;
 
   return gsap.to(target.current, {
