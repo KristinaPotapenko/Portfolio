@@ -8,7 +8,7 @@ export const HeroContent = ({ section }) => {
   return (
     <div className={style.heroContent}>
       <HeroHeading section={section} />
-      <SectionDescription marginBottom="60px">
+      <SectionDescription section={section} reverse={true} marginBottom="60px">
         Frontend Developer passionate about crafting intuitive, visually
         appealing interfaces. With a strong foundation in UI/UX principles
         (Figma) and hands-on experience in personal projects, I thrive on

@@ -1,4 +1,4 @@
-import { useLayoutEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import { SectionTitle } from "../../components/ui/sectionTitle/SectionTitle";
 import { ProjectsList } from "../../components/projects/projectsList/ProjectsList";
@@ -9,7 +9,7 @@ export const ProjectsSection = () => {
   const sectionRef = useRef(null);
   const [isMounted, setIsMounted] = useState(false);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     setIsMounted(true);
   }, []);
 
@@ -25,8 +25,7 @@ export const ProjectsSection = () => {
               My Projects
             </SectionTitle>
           )}
-
-          <ProjectsList />
+          {isMounted && <ProjectsList section={sectionRef} />}
         </section>
       </div>
     </div>

@@ -1,13 +1,16 @@
 import { useState } from "react";
+
+import { projects } from "./projects";
+
 import { Slider } from "../../wrappers/SliderWrapper/Slider";
 import { Pagination } from "../../ui/pagination/Pagination";
 import { SliderButton } from "../../ui/sliderButton/SliderButton";
-import { ProjectsItem } from "../projectsItem/ProjectsItem";
 import { AnimationWrapper } from "../../wrappers/AnimationWrapper/AnimationWrapper";
-import { projects } from "./projects";
+import { ProjectsItem } from "../projectsItem/ProjectsItem";
+
 import style from "./ProjectsList.module.scss";
 
-export const ProjectsList = () => {
+export const ProjectsList = ({ section }) => {
   const [activeSlide, setActiveSlide] = useState(0);
 
   const showNextProject = () => {
@@ -36,6 +39,7 @@ export const ProjectsList = () => {
         <ul className={style.projectsList}>
           <AnimationWrapper projects={projects} activeSlide={activeSlide}>
             <ProjectsItem
+              section={section}
               key={projects[activeSlide].id}
               image={projects[activeSlide].image}
               id={projects[activeSlide].id}
