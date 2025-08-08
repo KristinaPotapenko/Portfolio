@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 
 import gsap from "gsap";
 
+import { createScrollHideAnimation } from "../../../scripts/animation/createScrollHideAnimation";
 import { ROUTES } from "../../../utils/routes";
 
 import logoDark from "./../../../assets/images/logoDark.png";
@@ -10,7 +11,7 @@ import logoLight from "./../../../assets/images/logoLight.png";
 
 import style from "./Logo.module.scss";
 
-export const Logo = ({ isLight = false }) => {
+export const Logo = ({ sectionRef = null, isLight = false }) => {
   const logoRef = useRef(null);
   const imageRef = useRef(null);
 
@@ -27,35 +28,26 @@ export const Logo = ({ isLight = false }) => {
 
     tl.fromTo(
       imageRef.current,
-      {
-        y: -20,
-        opacity: 0,
-        scale: 0.8,
-      },
-      {
-        y: 0,
-        opacity: 1,
-        scale: 1,
-        duration: 1.2,
-        ease: "power2.out",
-      }
+      { y: -20, opacity: 0, scale: 0.8 },
+      { y: 0, opacity: 1, scale: 1, duration: 1.2, ease: "power2.out" }
     );
 
     tl.fromTo(
       letters,
-      {
-        y: 40,
-        opacity: 0,
-      },
-      {
-        y: 0,
-        opacity: 1,
-        stagger: 0.15,
-        ease: "back.out(2.5)",
-        duration: 1,
-      },
+      { y: 40, opacity: 0 },
+      { y: 0, opacity: 1, stagger: 0.15, ease: "back.out(2.5)", duration: 1 },
       "-=0.5"
     );
+
+    tl.eventCallback("onComplete", () => {
+      createScrollHideAnimation({
+        target: logoRef,
+        trigger: sectionRef,
+        x: -20,
+        scale: 0.8,
+        rotationZ: -5,
+      });
+    });
   }, []);
 
   const handleMouseEnter = () => {

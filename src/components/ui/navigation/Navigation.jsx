@@ -1,11 +1,14 @@
 import { useEffect, useRef } from "react";
+
 import gsap from "gsap";
+
+import { createScrollHideAnimation } from "../../../scripts/animation/createScrollHideAnimation";
 
 import { NavLink } from "../navLink/NavLink";
 
 import style from "./Navigation.module.scss";
 
-export const Navigation = ({ ...props }) => {
+export const Navigation = ({ sectionRef, ...props }) => {
   const navigationRef = useRef(null);
 
   useEffect(() => {
@@ -28,6 +31,13 @@ export const Navigation = ({ ...props }) => {
         },
         index * 0.15
       );
+    });
+
+    tl.eventCallback("onComplete", () => {
+      createScrollHideAnimation({
+        target: navigationRef,
+        trigger: sectionRef,
+      });
     });
   }, []);
 

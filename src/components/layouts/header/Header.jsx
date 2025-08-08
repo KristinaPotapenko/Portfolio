@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 
 import { useNoScroll } from "../../../scripts/hooks/useNoScroll";
+import { createScrollHideAnimation } from "../../../scripts/animation/createScrollHideAnimation";
 
 import { Logo } from "../../ui/logo/Logo";
 import { Navigation } from "../../ui/navigation/Navigation";
@@ -18,7 +19,13 @@ export const Header = () => {
   const burgerButtonRef = useRef(null);
   const closeMobileMenuButtonRef = useRef(null);
 
+  const headerRef = useRef(null);
+  const [isMounted, setIsMounted] = useState(false);
   const headerLinksRef = useRef(null);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   const [isOpen, setIsOpen] = useState(false);
   useNoScroll(isOpen);
@@ -44,6 +51,15 @@ export const Header = () => {
         duration: 0.8,
         ease: "back.out(1.7)",
         delay: 0.4,
+        onComplete: () => {
+          createScrollHideAnimation({
+            target: burgerButtonRef,
+            trigger: headerRef,
+            x: 20,
+            scale: 0.8,
+            rotationZ: 5,
+          });
+        },
       }
     );
   }, []);
@@ -110,19 +126,24 @@ export const Header = () => {
   }, [isOpen]);
 
   return (
-    <div className="container">
+    <div ref={headerRef} className="container">
       <header className={style.header}>
-        <Logo />
+        {isMounted && <Logo sectionRef={headerRef} />}
         <div ref={headerLinksRef} className={style.headerLinks}>
-          <Navigation onClick={handleChangeOpen} />
-          <Link
-            isOpenMobileMenu={isOpen}
-            onClick={handleChangeOpen}
-            href="https://kristinapotapenko.github.io/Portfolio/Resume.pdf"
-            download
-          >
-            Resume <DownloadIcon />
-          </Link>
+          {isMounted && (
+            <Navigation sectionRef={headerRef} onClick={handleChangeOpen} />
+          )}
+          {isMounted && (
+            <Link
+              sectionRef={headerRef}
+              isOpenMobileMenu={isOpen}
+              onClick={handleChangeOpen}
+              href="https://kristinapotapenko.github.io/Portfolio/Resume.pdf"
+              download
+            >
+              Resume <DownloadIcon />
+            </Link>
+          )}
           <button
             ref={closeMobileMenuButtonRef}
             onClick={() => setIsOpen()}

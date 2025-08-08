@@ -2,9 +2,17 @@ import { useEffect, useRef } from "react";
 
 import gsap from "gsap";
 
+import { createScrollHideAnimation } from "../../../scripts/animation/createScrollHideAnimation";
+
 import style from "../../inputs/button/Button.module.scss";
 
-export const Link = ({ isOpenMobileMenu, onClick, children, ...props }) => {
+export const Link = ({
+  sectionRef = null,
+  isOpenMobileMenu,
+  onClick,
+  children,
+  ...props
+}) => {
   const linkRef = useRef(null);
 
   useEffect(() => {
@@ -24,6 +32,15 @@ export const Link = ({ isOpenMobileMenu, onClick, children, ...props }) => {
         duration: 1.5,
         ease: "power3.out",
         delay: 0.2,
+        onComplete: () => {
+          createScrollHideAnimation({
+            target: linkRef,
+            trigger: sectionRef,
+            x: 20,
+            scale: 0.8,
+            rotationZ: 5,
+          });
+        },
       }
     );
   }, [isOpenMobileMenu]);
