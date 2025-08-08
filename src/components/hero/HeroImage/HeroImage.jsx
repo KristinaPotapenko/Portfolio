@@ -6,7 +6,7 @@ import PersonImage from "../../../assets/images/hero.jpg";
 
 import style from "./HeroImage.module.scss";
 
-export const HeroImage = () => {
+export const HeroImage = ({ section }) => {
   const imageRef = useRef(null);
 
   useEffect(() => {
@@ -26,6 +26,26 @@ export const HeroImage = () => {
         duration: 1,
         delay: 0.4,
         ease: "elastic.out(1, 0.5)",
+        onComplete: () => {
+          if (section?.current) {
+            gsap.to(imageRef.current, {
+              y: -60,
+              x: () => {
+                if (window.innerWidth >= 1024) return 30;
+                return 0;
+              },
+              opacity: 0.4,
+              scale: 0.85,
+              ease: "power1.out",
+              scrollTrigger: {
+                trigger: section.current,
+                start: "50% 40%",
+                end: "bottom 40%",
+                scrub: true,
+              },
+            });
+          }
+        },
       }
     );
   }, []);

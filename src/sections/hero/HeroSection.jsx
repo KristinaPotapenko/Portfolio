@@ -17,7 +17,7 @@ export const HeroSection = () => {
     <div ref={sectionRef} className="container">
       <section className={`sectionMedium ${style.heroSection}`}>
         {isMounted && <HeroContent section={sectionRef} />}
-        <HeroImage />
+        {isMounted && <HeroImage section={sectionRef} />}
       </section>
     </div>
   );
