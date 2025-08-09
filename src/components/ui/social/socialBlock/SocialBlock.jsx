@@ -2,6 +2,8 @@ import { useEffect, useRef } from "react";
 
 import gsap from "gsap";
 
+import { useWindowWidth } from "../../../../scripts/helpers/useWindowWidth";
+
 import { SocialItem } from "../socialItem/SocialItem";
 
 import { ReactComponent as InstagramIcon } from "../../../../assets/icons/instagram.svg";
@@ -12,6 +14,10 @@ import { ReactComponent as GithubIcon } from "../../../../assets/icons/github.sv
 import style from "./SocialBlock.module.scss";
 
 export const SocialBlock = ({ section, reverse = false }) => {
+  const windowWidth = useWindowWidth();
+  const isTablet = windowWidth <= 1023;
+  const isMobile = windowWidth <= 767;
+
   const socialBlockRef = useRef(null);
 
   useEffect(() => {
@@ -62,8 +68,8 @@ export const SocialBlock = ({ section, reverse = false }) => {
             ease: "power1.inOut",
             scrollTrigger: {
               trigger: section.current,
-              start: "-40% 30%",
-              end: "50% 65%",
+              start: isMobile ? "-10% top" : isTablet ? "-30% top" : "-40% 30%",
+              end: isMobile ? "10% top" : isTablet ? "20% 25%" : "50% 65%",
               scrub: true,
             },
           }
