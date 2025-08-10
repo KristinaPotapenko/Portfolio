@@ -4,9 +4,11 @@
 .projectsItem {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   gap: 60px;
   min-height: 550px;
+  min-width: 100vw;
+  max-width: 1240px;
   padding-inline: 80px;
 
   @include desktop {

@@ -12,7 +12,7 @@ export const ProjectsItem = ({
   href,
 }) => {
   return (
-    <div className={`${style.projectsItem}`}>
+    <li className={`${style.projectsItem}`} data-project-item>
       <ProjectImage image={image} />
       <ProjectContent
         section={section}
@@ -21,6 +21,6 @@ export const ProjectsItem = ({
         description={description}
         href={href}
       />
-    </div>
+    </li>
   );
 };

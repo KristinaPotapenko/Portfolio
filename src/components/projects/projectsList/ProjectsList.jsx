@@ -1,61 +1,81 @@
-import { useState } from "react";
+import { useEffect, useRef } from "react";
+
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 import { projects } from "./projects";
 
-import { Slider } from "../../wrappers/SliderWrapper/Slider";
-import { Pagination } from "../../ui/pagination/Pagination";
-import { SliderButton } from "../../ui/sliderButton/SliderButton";
-import { AnimationWrapper } from "../../wrappers/AnimationWrapper/AnimationWrapper";
 import { ProjectsItem } from "../projectsItem/ProjectsItem";
 
 import style from "./ProjectsList.module.scss";
 
+gsap.registerPlugin(ScrollTrigger);
+
 export const ProjectsList = ({ section }) => {
-  const [activeSlide, setActiveSlide] = useState(0);
+  const panelsWrapperRef = useRef(null);
 
-  const showNextProject = () => {
-    setActiveSlide((indexSlide) => {
-      if (projects.length - 1 === indexSlide) {
-        return 0;
-      }
-      return indexSlide + 1;
+  useEffect(() => {
+    if (!panelsWrapperRef.current) return;
+
+    const container = panelsWrapperRef.current;
+    const windowWidth = window.innerWidth;
+    const scrollWidth = container.scrollWidth;
+
+    const tween = gsap.to(container, {
+      x: () => -1 * (scrollWidth - windowWidth),
+      ease: "none",
+      scrollTrigger: {
+        trigger: section.current,
+        pin: true,
+        start: "top top",
+        scrub: 1,
+        end: () => "+=" + (scrollWidth - windowWidth),
+      },
     });
-  };
 
-  const showPrevProject = () => {
-    setActiveSlide((indexSlide) => {
-      if (indexSlide === 0) {
-        return projects.length - 1;
+    const items = container.querySelectorAll("li");
+
+    gsap.fromTo(
+      items,
+      { opacity: 0, y: 40 },
+      {
+        opacity: 1,
+        y: 0,
+        stagger: 0.2,
+        delay: 0.2,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: section.current,
+          start: "top center",
+          end: "bottom top",
+          scrub: true,
+        },
       }
+    );
 
-      return indexSlide - 1;
-    });
-  };
+    return () => {
+      if (tween) tween.kill();
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+    };
+  }, [section]);
 
   return (
-    <Slider>
-      <SliderButton showProject={showPrevProject} isLeft={true} />
-      <div className={style.projectsListWrapper}>
-        <ul className={style.projectsList}>
-          <AnimationWrapper projects={projects} activeSlide={activeSlide}>
+    <div className={style.projectsListWrapper} ref={panelsWrapperRef}>
+      <ul className={style.projectsList}>
+        {projects.map((project) => {
+          return (
             <ProjectsItem
               section={section}
-              key={projects[activeSlide].id}
-              image={projects[activeSlide].image}
-              id={projects[activeSlide].id}
-              title={projects[activeSlide].title}
-              description={projects[activeSlide].description}
-              href={projects[activeSlide].href}
+              key={project.id}
+              image={project.image}
+              id={project.id}
+              title={project.title}
+              description={project.description}
+              href={project.href}
             />
-          </AnimationWrapper>
-        </ul>
-        <Pagination
-          projects={projects}
-          activeSlide={activeSlide}
-          setActiveSlide={setActiveSlide}
-        />
-      </div>
-      <SliderButton showProject={showNextProject} />
-    </Slider>
+          );
+        })}
+      </ul>
+    </div>
   );
 };
