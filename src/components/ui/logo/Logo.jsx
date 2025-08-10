@@ -11,7 +11,11 @@ import logoLight from "./../../../assets/images/logoLight.png";
 
 import style from "./Logo.module.scss";
 
-export const Logo = ({ sectionRef = null, isLight = false }) => {
+export const Logo = ({
+  sectionRef = null,
+  revert = false,
+  isLight = false,
+}) => {
   const logoRef = useRef(null);
   const imageRef = useRef(null);
 
@@ -40,13 +44,19 @@ export const Logo = ({ sectionRef = null, isLight = false }) => {
     );
 
     tl.eventCallback("onComplete", () => {
-      createScrollHideAnimation({
+      const baseParams = {
         target: logoRef,
         trigger: sectionRef,
         x: -20,
         scale: 0.8,
-        rotationZ: -5,
-      });
+        rotationZ: revert ? -5 : 5,
+      };
+
+      if (revert) {
+        baseParams.revert = true;
+      }
+
+      createScrollHideAnimation(baseParams);
     });
   }, []);
 
