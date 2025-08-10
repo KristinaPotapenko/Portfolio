@@ -1,15 +1,24 @@
 @use "../../../styles/abstracts/media" as *;
 @use "../../../styles/abstracts/mixins" as *;
 
-.skillsItemWrapper {
-  @include square(186px);
+.skillsItem {
   @include flex-center;
 
   flex-direction: column;
+  flex-basis: calc((100% - 120px) / 3);
+  aspect-ratio: 1/1;
   gap: 32px;
   border: var(--border-dark);
   border-radius: var(--border-radius-small);
   transition: all 0.7s ease;
+
+  @include tablet {
+    flex-basis: calc((100% - 40px) / 2);
+  }
+
+  @include mobile {
+    flex-basis: calc((100% - 20px) / 2);
+  }
 
   @include hover {
     background-color: var(--primary-color-dark);
@@ -24,17 +33,26 @@
     }
   }
 
-  @include tablet {
-    @include square(160px);
-  }
-
   svg {
-    @include square(var(--social-size));
+    @include square(64px);
+
+    @include tablet {
+      @include square(var(--social-size));
+    }
   }
 }
 
 .skillsItemName {
-  font-size: 20px;
+  font-size: 28px;
   font-weight: 700;
   color: var(--primary-color-dark);
+
+  @include tablet {
+    font-size: 20px;
+  }
+
+  @include mobile {
+    font-size: 16px;
+    font-weight: 600;
+  }
 }

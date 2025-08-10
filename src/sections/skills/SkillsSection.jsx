@@ -19,7 +19,7 @@ export const SkillsSection = () => {
         {isMounted && (
           <SectionTitle section={sectionRef}>My Skills</SectionTitle>
         )}
-        <SkillsList />
+        {isMounted && <SkillsList section={sectionRef} />}
       </section>
     </div>
   );

@@ -4,7 +4,8 @@ import { ReactComponent as ScssIcon } from "../../../assets/icons/scss.svg";
 import { ReactComponent as JSIcon } from "../../../assets/icons/javascript.svg";
 import { ReactComponent as ReactIcon } from "../../../assets/icons/react.svg";
 import { ReactComponent as ReduxIcon } from "../../../assets/icons/redux.svg";
-// import { ReactComponent as NextIcon } from "../../../assets/icons/nextJs.svg";
+import { ReactComponent as NextIcon } from "../../../assets/icons/nextJs.svg";
+import { ReactComponent as GreensockIcon } from "../../../assets/icons/greensock.svg";
 import { ReactComponent as TSIcon } from "../../../assets/icons/typescript.svg";
 import { ReactComponent as GitIcon } from "../../../assets/icons/git.svg";
 import { ReactComponent as PostgreeIcon } from "../../../assets/icons/postgresql.svg";
@@ -48,33 +49,38 @@ export const skills = [
     icon: <ReduxIcon />,
     skillsName: "Redux",
   },
-  // {
-  //   id: "8",
-  //   icon: <NextIcon />,
-  //   skillsName: "Next.js",
-  // },
+  {
+    id: "8",
+    icon: <NextIcon />,
+    skillsName: "Next.js",
+  },
   {
     id: "9",
+    icon: <GreensockIcon />,
+    skillsName: "GSAP",
+  },
+  {
+    id: "10",
     icon: <GitIcon />,
     skillsName: "Git",
   },
   {
-    id: "10",
+    id: "11",
     icon: <FigmaIcon />,
     skillsName: "Figma",
   },
   {
-    id: "11",
+    id: "12",
     icon: <WebpackIcon />,
     skillsName: "Webpack",
   },
   {
-    id: "12",
+    id: "13",
     icon: <ViteIcon />,
     skillsName: "Vite",
   },
   {
-    id: "13",
+    id: "14",
     icon: <PostgreeIcon />,
     skillsName: "PostgreSQL",
   },
