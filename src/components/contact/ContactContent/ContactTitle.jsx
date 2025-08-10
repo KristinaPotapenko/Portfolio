@@ -13,8 +13,8 @@ export const ContactTitle = ({ section }) => {
     animateTitle(titleRef, {
       scrollTrigger: {
         trigger: section.current,
-        start: "10% 80%",
-        end: "35% 50%",
+        start: "10% 60%",
+        end: "35% 65%",
         scrub: true,
       },
     });

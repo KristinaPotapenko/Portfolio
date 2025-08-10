@@ -11,6 +11,7 @@ export const Inputs = ({ formData, handleChangeField, fieldErrors }) => {
         onChange={handleChangeField}
         placeholder="Your name"
         error={fieldErrors.name}
+        data-form-item
       />
       <Input
         type="email"
@@ -19,6 +20,7 @@ export const Inputs = ({ formData, handleChangeField, fieldErrors }) => {
         onChange={handleChangeField}
         placeholder="Email"
         error={fieldErrors.email}
+        data-form-item
       />
       <Input
         type="text"
@@ -27,6 +29,7 @@ export const Inputs = ({ formData, handleChangeField, fieldErrors }) => {
         onChange={handleChangeField}
         placeholder="Your website (If exists)"
         error={fieldErrors.website}
+        data-form-item
       />
       <Textarea
         name="message"
@@ -35,6 +38,7 @@ export const Inputs = ({ formData, handleChangeField, fieldErrors }) => {
         onChange={handleChangeField}
         placeholder="How can I help?*"
         error={fieldErrors.message}
+        data-form-item
       />
     </>
   );
