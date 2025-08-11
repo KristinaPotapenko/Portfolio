@@ -14,7 +14,7 @@ export const NavLink = ({ onClick, children, ...props }) => {
     gsap.to(linkRef.current, {
       y: -4,
       scale: 1.05,
-      boxShadow: "0px 10px 25px rgba(0,0,0,0.08)",
+      boxShadow: "0px 10px 75px rgba(0,0,0,0.08)",
       duration: 0.3,
       ease: "power3.out",
     });
