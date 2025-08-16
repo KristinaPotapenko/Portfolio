@@ -18,44 +18,26 @@ export const ProjectsList = ({ section }) => {
     if (!panelsWrapperRef.current) return;
 
     const container = panelsWrapperRef.current;
-    const windowWidth = window.innerWidth;
     const scrollWidth = container.scrollWidth;
+    const sectionWidth = section.current.offsetWidth;
 
     const tween = gsap.to(container, {
-      x: () => -1 * (scrollWidth - windowWidth),
+      x: () => -1 * (scrollWidth - sectionWidth),
       ease: "none",
       scrollTrigger: {
+        id: "projects-scroll",
         trigger: section.current,
         pin: true,
         start: "top top",
         scrub: 1,
-        end: () => "+=" + (scrollWidth - windowWidth),
+        markers: true,
+        end: () => `+=${scrollWidth - sectionWidth}`,
       },
     });
 
-    const items = container.querySelectorAll("li");
-
-    gsap.fromTo(
-      items,
-      { opacity: 0, y: 40 },
-      {
-        opacity: 1,
-        y: 0,
-        stagger: 0.2,
-        delay: 0.2,
-        ease: "power2.out",
-        scrollTrigger: {
-          trigger: section.current,
-          start: "top center",
-          end: "bottom top",
-          scrub: true,
-        },
-      }
-    );
-
     return () => {
-      if (tween) tween.kill();
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+      tween?.kill();
+      ScrollTrigger.getById("projects-scroll")?.kill();
     };
   }, [section]);
 

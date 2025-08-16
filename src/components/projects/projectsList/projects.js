@@ -10,7 +10,7 @@ export const projects = [
     image: projectBritlex,
     title: "Britlex",
     description:
-      "A web page designed to attract potential students to an English language school. The project was created using modern web technologies and design solutions to provide an attractive and informative user experience.",
+      "Layout-focused project aimed at practicing modern HTML/CSS techniques and responsive design principles. It was built to improve skills in semantic markup, Flexbox, Grid, and adaptive UI patterns, providing a solid foundation in frontend development fundamentals.",
     href: "https://kristinapotapenko.github.io/Britlex/",
   },
   {
@@ -18,7 +18,7 @@ export const projects = [
     image: projectMoneyGuard,
     title: "Money Guard",
     description:
-      "A web-based bank account management application designed for creating accounts, performing transactions, tracking cash flows, and financial reporting. The application provides functionality for creating and modifying bank accounts and transactions, as well as visualizing financial data using reports and charts. It was developed in a team with a backend developer.",
+      "Full-featured web application for managing bank accounts and financial transactions. It allows users to create and modify accounts, perform transactions, and track financial flows with detailed reports and charts. The project was developed collaboratively with a backend developer, highlighting strong skills in teamwork, UI development, and data visualization using React and charting libraries.",
     href: "https://kristinapotapenko.github.io/Money-Guard/",
   },
   {
@@ -26,7 +26,7 @@ export const projects = [
     image: projectPortfolio,
     title: "Kris Portfolio",
     description:
-      "The project was created to present my skills, experience, and work samples. The goal was to implement a user-friendly, modern, and stylish website that demonstrates my skills in front-end development using the React library.",
+      "Personal website designed to present my skills, experience, and project work in a clean, modern, and user-friendly format. Built with React, the site features smooth animations, responsive layouts, and a polished UI, showcasing my frontend development abilities and design sensibilities.",
     href: "https://kristinapotapenko.github.io/Portfolio/",
   },
   {

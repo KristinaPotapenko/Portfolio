@@ -19,7 +19,7 @@ export const ProjectsSection = () => {
         <section
           ref={sectionRef}
           className={`sectionMedium ${style.projectsSection}`}
-          style={{ overflow: "hidden" }}
+          style={{ display: "flex", justifyContent: "center" }}
         >
           {isMounted && (
             <SectionTitle section={sectionRef} isLight={true}>

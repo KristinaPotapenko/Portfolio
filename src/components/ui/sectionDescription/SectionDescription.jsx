@@ -2,13 +2,16 @@ import { useEffect, useRef } from "react";
 
 import gsap from "gsap";
 import { SplitText } from "gsap/SplitText";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 import style from "./SectionDescription.module.scss";
 
-gsap.registerPlugin(SplitText);
+gsap.registerPlugin(SplitText, ScrollTrigger);
 
 export const SectionDescription = ({
   section = null,
+
+  isHorizontalSection = false,
   reverse = false,
   marginBottom,
   children,
@@ -16,6 +19,8 @@ export const SectionDescription = ({
   const descriptionRef = useRef(null);
 
   useEffect(() => {
+    if (isHorizontalSection) return;
+
     document.fonts.ready.then(() => {
       gsap.set(descriptionRef.current, { opacity: 1 });
 

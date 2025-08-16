@@ -22,7 +22,11 @@ export const ProjectContent = ({
     <div className={style.projectContent}>
       <p className={style.projectNumber}>{formattedNumber}</p>
       <h3 className={style.projectTitle}>{title}</h3>
-      <SectionDescription section={section} marginBottom="24px">
+      <SectionDescription
+        section={section}
+        isHorizontalSection={true}
+        marginBottom="24px"
+      >
         {description}
       </SectionDescription>
       <a
