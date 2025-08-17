@@ -1,31 +1,34 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import gsap from "gsap";
 import { SplitText } from "gsap/SplitText";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-import style from "./SectionDescription.module.scss";
+import styles from "./SectionDescription.module.scss";
 
 gsap.registerPlugin(SplitText, ScrollTrigger);
 
 export const SectionDescription = ({
   section = null,
-
   isHorizontalSection = false,
   reverse = false,
   marginBottom,
+  isClamped = false,
   children,
 }) => {
-  const descriptionRef = useRef(null);
+  const maxHeight = isClamped ? 80 : null;
+  const [expanded, setExpanded] = useState(false);
+  const [isOverflowing, setIsOverflowing] = useState(false);
+  const contentRef = useRef(null);
 
   useEffect(() => {
     if (isHorizontalSection) return;
 
     document.fonts.ready.then(() => {
-      gsap.set(descriptionRef.current, { opacity: 1 });
+      gsap.set(contentRef.current, { opacity: 1 });
 
       let split;
-      SplitText.create(descriptionRef.current, {
+      SplitText.create(contentRef.current, {
         type: "words,lines",
         linesClass: "line",
         autoSplit: true,
@@ -82,13 +85,30 @@ export const SectionDescription = ({
     });
   }, [section]);
 
+  useEffect(() => {
+    if (contentRef.current) {
+      setIsOverflowing(contentRef.current.scrollHeight > maxHeight);
+    }
+  }, [children, isClamped]);
+
   return (
-    <p
-      ref={descriptionRef}
-      style={{ marginBottom }}
-      className={style.sectionDescription}
-    >
-      {children}
-    </p>
+    <div className={styles.descriptionWrapper} style={{ marginBottom }}>
+      <div
+        ref={contentRef}
+        className={`${styles.description} ${expanded ? styles.expanded : ""}`}
+        style={{ maxHeight: expanded ? "none" : `${maxHeight}px` }}
+      >
+        {children}
+      </div>
+
+      {isOverflowing && (
+        <button
+          className={styles.toggleButton}
+          onClick={() => setExpanded((prev) => !prev)}
+        >
+          {expanded ? "Show less" : "Read more"}
+        </button>
+      )}
+    </div>
   );
 };
