@@ -30,7 +30,6 @@ export const ProjectsList = ({ section }) => {
         pin: true,
         start: "top top",
         scrub: 1,
-        markers: true,
         end: () => `+=${scrollWidth - sectionWidth}`,
       },
     });
