@@ -16,7 +16,7 @@ export const SectionDescription = ({
   isClamped = false,
   children,
 }) => {
-  const maxHeight = isClamped ? 80 : null;
+  const maxHeight = isClamped ? 88 : null;
   const [expanded, setExpanded] = useState(false);
   const [isOverflowing, setIsOverflowing] = useState(false);
   const contentRef = useRef(null);
@@ -87,7 +87,10 @@ export const SectionDescription = ({
 
   useEffect(() => {
     if (contentRef.current) {
-      setIsOverflowing(contentRef.current.scrollHeight > maxHeight);
+      const isOverflow =
+        contentRef.current.scrollHeight > maxHeight ||
+        contentRef.current.scrollHeight > 80;
+      setIsOverflowing(isOverflow);
     }
   }, [children, isClamped]);
 

@@ -13,6 +13,10 @@
     margin-bottom: 60px;
   }
 
+  @include mobile {
+    margin-bottom: 40px;
+  }
+
   &Block {
     margin-bottom: 40px;
   }
