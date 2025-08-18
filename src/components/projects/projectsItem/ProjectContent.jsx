@@ -26,6 +26,7 @@ export const ProjectContent = ({
         section={section}
         isHorizontalSection={true}
         marginBottom="24px"
+        isClamped={true}
       >
         {description}
       </SectionDescription>

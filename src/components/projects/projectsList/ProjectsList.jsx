@@ -15,14 +15,15 @@ export const ProjectsList = ({ section }) => {
   const panelsWrapperRef = useRef(null);
 
   useEffect(() => {
-    if (!panelsWrapperRef.current) return;
+    if (!panelsWrapperRef.current || !section.current) return;
 
     const container = panelsWrapperRef.current;
-    const scrollWidth = container.scrollWidth;
-    const sectionWidth = section.current.offsetWidth;
+    const list = container.querySelector("ul");
+    const totalWidth = list.scrollWidth;
+    const viewportWidth = section.current.offsetWidth;
 
     const tween = gsap.to(container, {
-      x: () => -1 * (scrollWidth - sectionWidth),
+      x: () => -(totalWidth - viewportWidth),
       ease: "none",
       scrollTrigger: {
         id: "projects-scroll",
@@ -30,7 +31,8 @@ export const ProjectsList = ({ section }) => {
         pin: true,
         start: "top top",
         scrub: 1,
-        end: () => `+=${scrollWidth - sectionWidth}`,
+        end: () => `+=${totalWidth - viewportWidth}`,
+        invalidateOnRefresh: true,
       },
     });
 
