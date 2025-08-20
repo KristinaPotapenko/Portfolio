@@ -14,7 +14,7 @@ export const ProjectsItem = ({
   return (
     <li className={`${style.projectsItem}`} data-project-item>
       <div className={style.projectsItemInner}>
-        <ProjectImage image={image} />
+        <ProjectImage image={image} href={href} />
         <ProjectContent
           section={section}
           number={id}
