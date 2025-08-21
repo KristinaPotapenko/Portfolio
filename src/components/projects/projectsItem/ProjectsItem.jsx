@@ -12,17 +12,15 @@ export const ProjectsItem = ({
   href,
 }) => {
   return (
-    <li className={`${style.projectsItem}`} data-project-item>
-      <div className={style.projectsItemInner}>
-        <ProjectImage image={image} href={href} />
-        <ProjectContent
-          section={section}
-          number={id}
-          title={title}
-          description={description}
-          href={href}
-        />
-      </div>
-    </li>
+    <div className={style.projectItem}>
+      <ProjectImage image={image} href={href} />
+      <ProjectContent
+        section={section}
+        number={id}
+        title={title}
+        description={description}
+        href={href}
+      />
+    </div>
   );
 };

@@ -1,9 +1,59 @@
 @use "../../styles/abstracts/media" as *;
 
-.projectsSection {
+.content {
+  position: relative;
+  width: 100%;
+  height: auto;
+  padding: 0 60px;
+  background-color: var(--primary-color-dark);
+
+  h2 {
+    position: absolute;
+    top: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    @include mobile-s {
+      top: 40px;
+      left: auto;
+      transform: translateX(0);
+    }
+
+    @include mobile-s {
+      top: 20px;
+    }
+  }
+}
+
+.sectionSlider {
+  height: auto;
+}
+
+.gsapSlider {
+  height: 100vh;
+}
+
+.gsapBl {
+  width: 100%;
+}
+
+.gsapInner,
+.gsapTrack {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  min-height: 100vh;
-  overflow: hidden;
+}
+
+.gsapInner {
+  width: calc(100% + 60px);
+}
+
+.gsapTrack {
+  will-change: transform;
+}
+
+.gsapSlider .content,
+.gsapH,
+.gsapBl,
+.gsapInner,
+.gsapItem {
+  height: 100%;
 }

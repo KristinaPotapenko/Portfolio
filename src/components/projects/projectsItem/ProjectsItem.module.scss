@@ -1,55 +1,43 @@
 @use "../../../styles/abstracts/media" as *;
 @use "../../../styles/abstracts/mixins" as *;
 
-.projectsItem {
-  flex: 0 0 auto;
+.projectItem {
+  position: relative;
   display: flex;
-  justify-content: start;
-  width: 100%;
-  min-height: 70vh;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  gap: 60px;
+  max-width: 1240px;
+  width: 80%;
+  will-change: transform;
 
   @include desktop {
-    flex: 0 0 100vw;
-    padding-inline: 60px;
+    width: 100vw;
   }
 
-  &Inner {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 60px;
-    width: 100%;
-    max-width: 1240px;
+  @include tablet {
+    flex-direction: column;
+  }
 
-    @include desktop {
-      flex-direction: column;
-      justify-content: start;
-    }
+  @include mobile {
+    gap: 40px;
+    width: 80vw;
+  }
+}
 
-    @include mobile {
-      gap: 20px;
-    }
+.projectItem + .projectItem {
+  margin-left: 80px;
+
+  @include mobile {
+    margin-left: 100px;
   }
 }
 
 .projectImage {
-  flex-grow: 0;
-  flex-shrink: 1;
   max-width: 530px;
-  object-fit: cover;
-  border-radius: var(--border-radius-large);
-
-  @include mobile {
-    max-height: 20vh;
-  }
-}
-
-.projectContent {
-  flex: 1 0 auto;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 28px;
+  width: 100%;
+  border-radius: var(--border-radius-medius);
 }
 
 .projectNumber {
