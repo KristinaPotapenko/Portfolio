@@ -21,9 +21,10 @@ a {
 }
 
 .wrapper {
-  display: flex;
-  flex-direction: column;
-  min-height: 100%;
+  position: relative;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
 }
 
 main {
@@ -35,10 +36,6 @@ main {
   width: 100%;
   margin: 0 auto;
   padding-inline: var(--container-padding-x);
-
-  &Dark {
-    background-color: var(--primary-color-dark);
-  }
 }
 
 .sectionMedium {
