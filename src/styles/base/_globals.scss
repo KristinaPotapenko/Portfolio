@@ -36,6 +36,10 @@ main {
   width: 100%;
   margin: 0 auto;
   padding-inline: var(--container-padding-x);
+
+  &Dark {
+    background-color: var(--primary-color-dark);
+  }
 }
 
 .sectionMedium {
