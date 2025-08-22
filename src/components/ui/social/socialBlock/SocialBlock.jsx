@@ -76,7 +76,7 @@ export const SocialBlock = ({ section, reverse = false }) => {
         );
       }
     }
-  }, []);
+  }, [isMobile, isTablet, reverse, section]);
 
   return (
     <ul ref={socialBlockRef} className={style.socialBlock}>

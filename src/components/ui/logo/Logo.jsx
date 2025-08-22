@@ -58,7 +58,7 @@ export const Logo = ({
 
       createScrollHideAnimation(baseParams);
     });
-  }, []);
+  }, [sectionRef, revert]);
 
   const handleMouseEnter = () => {
     if (!logoRef.current || !imageRef.current) return;

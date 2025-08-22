@@ -40,7 +40,7 @@ export const SkillsList = ({ section }) => {
         }
       );
     });
-  }, []);
+  }, [section]);
 
   return (
     <ul className={style.skillsList} ref={skillsListRef}>

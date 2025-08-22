@@ -57,7 +57,7 @@ export const HeroImage = ({ section }) => {
         },
       }
     );
-  }, []);
+  }, [section]);
 
   const handleMouseEnter = () => {
     if (!imageRef.current) return;

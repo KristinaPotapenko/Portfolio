@@ -43,7 +43,7 @@ export const Link = ({
         },
       }
     );
-  }, [isOpenMobileMenu]);
+  }, [isOpenMobileMenu, sectionRef]);
 
   return (
     <a

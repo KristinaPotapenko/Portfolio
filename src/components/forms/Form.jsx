@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { Loader } from "../ui/loader/Loader";
 import { Button } from "../inputs/button/Button";
 import { Inputs } from "./Inputs";
@@ -50,7 +50,7 @@ export const Form = ({ section }) => {
         },
       }
     );
-  }, []);
+  }, [section]);
 
   const handleForm = async (e) => {
     e.preventDefault();
