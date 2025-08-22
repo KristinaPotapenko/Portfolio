@@ -47,6 +47,8 @@
 }
 
 .gsapTrack {
+  display: flex;
+  width: max-content;
   will-change: transform;
 }
 

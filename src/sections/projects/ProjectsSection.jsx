@@ -16,20 +16,48 @@ gsap.registerPlugin(ScrollTrigger);
 export const ProjectsSection = () => {
   const [isMounted, setIsMounted] = useState(false);
 
-  useEffect(() => {
-    setIsMounted(true);
-  }, []);
-
   const sliderRef = useRef(null);
   const trackRef = useRef(null);
   const blockRef = useRef(null);
 
   useEffect(() => {
-    const handleLoad = () => initScrollTrigger();
+    setIsMounted(true);
+  }, []);
 
-    window.addEventListener("load", handleLoad);
+  useEffect(() => {
+    if (!sliderRef.current || !trackRef.current || !blockRef.current) return;
 
-    return () => window.removeEventListener("load", handleLoad);
+    const images = trackRef.current.querySelectorAll("img");
+    let loadedCount = 0;
+
+    const onImageLoad = () => {
+      loadedCount++;
+      if (loadedCount === images.length) {
+        initScrollTrigger();
+      }
+    };
+
+    if (images.length === 0) {
+      initScrollTrigger();
+    } else {
+      images.forEach((img) => {
+        if (img.complete) onImageLoad();
+        else img.addEventListener("load", onImageLoad);
+      });
+    }
+
+    const handleResize = () => {
+      ScrollTrigger.refresh();
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      gsap.killTweensOf(trackRef.current);
+      ScrollTrigger.getAll().forEach((st) => st.kill());
+      window.removeEventListener("resize", handleResize);
+      images.forEach((img) => img.removeEventListener("load", onImageLoad));
+    };
   }, []);
 
   const initScrollTrigger = () => {
